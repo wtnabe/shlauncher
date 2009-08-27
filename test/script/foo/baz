@@ -1,0 +1,5 @@
+#! /bin/sh
+
+# null script
+
+echo "baz"

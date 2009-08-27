@@ -1,0 +1,30 @@
+
+= <%=launcher%>
+
+
+== Description
+
+ <%=description%>
+
+== Installation
+
+=== Archive Installation
+
+	rake install
+
+=== Gem Installation
+
+	gem install <%=launcher%>
+
+
+== Features/Problems
+
+
+== Synopsis
+
+
+== Copyright
+
+Author::    <%=author%> <<%=email%>>
+Copyright:: Copyright (c) <%=Time.now.strftime("%Y")%> <%=author%>
+License::   

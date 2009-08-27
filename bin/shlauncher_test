@@ -1,0 +1,20 @@
+#! /usr/bin/env rake -f
+# -*- mode: ruby; coding: utf-8 -*-
+
+require File.dirname( __FILE__ ) + '/../template/lib/shlauncher'
+
+launcher = Shlauncher.new( File.dirname( __FILE__ ) + '/../test/script' )
+
+launcher.tasks.each { |t|
+  desc launcher.desc( t )
+  task t do
+    launcher.launch( t )
+  end
+}
+
+task :default do
+  app = Rake.application
+  app.name = File.basename( __FILE__ )
+  app.options.show_task_pattern = Regexp.new('')
+  app.display_tasks_and_comments
+end

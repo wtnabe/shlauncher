@@ -1,0 +1,62 @@
+
+= Shlauncher - A shell script launcher
+
+Scaffold your custom launcher. Launch from your shell script ( and also Ruby script ) collection.
+
+== Installation
+
+=== Archive Installation
+
+ rake install
+
+=== Gem Installation
+
+ gem install wtnabe-shlauncher
+
+== Features/Problems
+
+* scaffold launcher  ( by `tractor' command )
+* collect scripts in script/ directory and list up as task
+* exec all tasks in some scope
+* generate gem
+
+== Synopsis
+
+Scaffold your launcher.
+
+ $ tractor LAUNCHER_NAME
+
+Put your script into script/ directory and make executable.
+
+ $ cd LAUNCHER_NAME
+ $ ./bin/LAUNCHER_NAME
+ $ echo '# script sample' > script/sample
+ $ chmod a+x script/sample
+
+Run your launcher.
+
+ $ ./bin/LAUNCHER_NAME
+
+ LAUNCHER_NAME sample  # script sample
+
+Generate gem from your launcher.
+
+ $ rake gem
+ $ ls pkg
+
+ LAUNCHER_NAME-0.0.1.gem 
+
+== Thanks
+
+`Cutagem' inspires and be helpful to this product.
+
+* http://github.com/genki/cutagem/tree/master
+* http://cutagem.rubyforge.org/
+
+Thank you, cho45 and genki !
+
+== Copyright
+
+Author::    wtnabe <wtnabe@gmail.com>
+Copyright:: Copyright (c) 2009 wtnabe
+License::   Two-claused BSD
