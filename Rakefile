@@ -30,7 +30,7 @@ RDOC_OPTS = [
 	"--charset", "utf-8",
 	"--opname", "index.html",
 	"--line-numbers",
-	"--main", "README.doc",
+	"--main", "README.rdoc",
 	"--inline-source",
 ]
 
@@ -48,7 +48,7 @@ spec = Gem::Specification.new do |s|
 	s.version           = VERS
 	s.platform          = Gem::Platform::RUBY
 	s.has_rdoc          = true
-	s.extra_rdoc_files  = ["README.doc", "ChangeLog"]
+	s.extra_rdoc_files  = ["README.rdoc", "ChangeLog"]
 	s.rdoc_options     += RDOC_OPTS + ['--exclude', '^(examples|extras)/']
 	s.summary           = "Scaffold your custom launcher. Launch from your shell script ( and also Ruby script ) collection."
 	s.description       = DESCRIPTION
@@ -65,7 +65,7 @@ spec = Gem::Specification.new do |s|
 	s.add_dependency('rake', '>= 0')
 	#s.required_ruby_version = '>= 1.8.2'
 
-	s.files = %w(README.doc ChangeLog Rakefile) +
+	s.files = %w(README.rdoc ChangeLog Rakefile) +
 		Dir.glob("{bin,doc,test,lib,templates,generator,extras,website,script}/**/*") + 
 		Dir.glob("ext/**/*.{h,c,rb}") +
 		Dir.glob("examples/**/*.rb") +
@@ -99,7 +99,7 @@ Rake::RDocTask.new do |rdoc|
 	if ENV['DOC_FILES']
 		rdoc.rdoc_files.include(ENV['DOC_FILES'].split(/,\s*/))
 	else
-		rdoc.rdoc_files.include('README.doc', 'ChangeLog')
+		rdoc.rdoc_files.include('README.rdoc', 'ChangeLog')
 		rdoc.rdoc_files.include('lib/**/*.rb')
 		rdoc.rdoc_files.include('ext/**/*.c')
 	end

@@ -13,7 +13,7 @@ class ShlauncherTest < Test::Unit::TestCase
   end
 
   def test_commands_ignored
-    assert( %w( example~ example.bak ) )
+    assert( @obj.commands_ignored == %w( example~ example.bak ) )
   end
 
   def test_desc

@@ -2,19 +2,19 @@
 
 Gem::Specification.new do |s|
   s.name = %q{shlauncher}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["wtnabe"]
-  s.date = %q{2009-08-27}
+  s.date = %q{2009-08-28}
   s.default_executable = %q{tractor}
   s.description = %q{A shell script launcher}
   s.email = %q{wtnabe@gmail.com}
   s.executables = ["tractor"]
-  s.extra_rdoc_files = ["README.doc", "ChangeLog"]
-  s.files = ["README.doc", "ChangeLog", "Rakefile", "bin/shlauncher_test", "bin/tractor", "test/script", "test/script/example", "test/script/foo", "test/script/foo/bar", "test/script/foo/baz", "test/script/README", "test/shlauncher_test.rb", "test/tractor_test.rb", "lib/tractor.rb"]
+  s.extra_rdoc_files = ["README.rdoc", "ChangeLog"]
+  s.files = ["README.rdoc", "ChangeLog", "Rakefile", "bin/shlauncher_test", "bin/tractor", "test/script", "test/script/example", "test/script/example.bak", "test/script/example~", "test/script/foo", "test/script/foo/bar", "test/script/foo/bar~", "test/script/foo/baz", "test/script/README", "test/shlauncher_test.rb", "test/tractor_test.rb", "lib/tractor.rb"]
   s.homepage = %q{}
-  s.rdoc_options = ["--title", "shlauncher documentation", "--charset", "utf-8", "--opname", "index.html", "--line-numbers", "--main", "README.doc", "--inline-source", "--exclude", "^(examples|extras)/"]
+  s.rdoc_options = ["--title", "shlauncher documentation", "--charset", "utf-8", "--opname", "index.html", "--line-numbers", "--main", "README.rdoc", "--inline-source", "--exclude", "^(examples|extras)/"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{}
   s.rubygems_version = %q{1.3.4}

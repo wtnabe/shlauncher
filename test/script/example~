@@ -1,0 +1,12 @@
+#! /bin/sh
+# -*- mode: sh -*-
+
+#
+# just example
+# 
+# Usage: example
+#
+
+echo "foo"
+
+# thx
