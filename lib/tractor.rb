@@ -5,7 +5,7 @@ require 'fileutils'
 require 'erb'
 
 class Shlauncher_Tractor
-  VERSION = "0.0.2"
+  VERSION = "0.0.3"
 
   include FileUtils::Verbose
 
@@ -33,7 +33,7 @@ class Shlauncher_Tractor
   end
 
   def deploy_template
-    cp_r( File.expand_path( File.dirname( __FILE__ ) + '/../template/' ),
+    cp_r( File.expand_path( File.dirname( __FILE__ ) + '/../templates/' ),
           launcher_dir )
     Dir.chdir( launcher_dir ) {
       mkdir( 'script' )

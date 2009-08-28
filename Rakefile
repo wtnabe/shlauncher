@@ -11,7 +11,7 @@ require 'rake/contrib/rubyforgepublisher'
 require 'rake/contrib/sshpublisher'
 require 'fileutils'
 require 'lib/tractor'
-require 'template/lib/shlauncher'
+require 'templates/lib/shlauncher'
 include FileUtils
 
 NAME              = "shlauncher"
