@@ -1,7 +1,7 @@
 #! /usr/bin/env rake -f
 # -*- mode: ruby; coding: utf-8 -*-
 
-require File.dirname( __FILE__ ) + '/../template/lib/shlauncher'
+require File.dirname( __FILE__ ) + '/../templates/lib/shlauncher'
 
 launcher = Shlauncher.new( File.dirname( __FILE__ ) + '/../test/script' )
 
