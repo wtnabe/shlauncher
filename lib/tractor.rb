@@ -43,7 +43,7 @@ class Shlauncher_Tractor
 
   def rewrite_template
     Dir.chdir( launcher_dir ) {
-      %w( Rakefile Changelog README ).each { |file|
+      %w( Rakefile ChangeLog README ).each { |file|
         open( file, 'r+' ) { |f|
           erb = ERB.new( f.read )
           f.rewind
