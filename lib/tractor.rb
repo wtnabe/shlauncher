@@ -5,7 +5,7 @@ require 'fileutils'
 require 'erb'
 
 class Shlauncher_Tractor
-  VERSION = "0.0.3"
+  VERSION = "0.0.4"
 
   include FileUtils::Verbose
 
