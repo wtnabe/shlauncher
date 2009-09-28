@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{shlauncher}
-  s.version = "0.0.4"
+  s.version = "0.0.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["wtnabe"]
-  s.date = %q{2009-09-05}
+  s.date = %q{2009-09-29}
   s.default_executable = %q{tractor}
   s.description = %q{A shell script launcher}
   s.email = %q{wtnabe@gmail.com}
@@ -14,6 +14,10 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = ["README.rdoc", "ChangeLog"]
   s.files = ["README.rdoc", "ChangeLog", "Rakefile", "bin/shlauncher_test", "bin/tractor", "test/script", "test/script/example", "test/script/example.bak", "test/script/example~", "test/script/foo", "test/script/foo/bar", "test/script/foo/bar~", "test/script/foo/baz", "test/script/README", "test/shlauncher_test.rb", "test/tractor_test.rb", "lib/tractor.rb", "templates/bin", "templates/bin/shlauncher", "templates/ChangeLog", "templates/lib", "templates/lib/shlauncher.rb", "templates/Rakefile", "templates/README"]
   s.homepage = %q{}
+  s.post_install_message = %q{
+Use with zsh. And FOR LINUX USERS, Please be careful with shebang line of tractor'd `bin/exectable'.
+
+}
   s.rdoc_options = ["--title", "shlauncher documentation", "--charset", "utf-8", "--opname", "index.html", "--line-numbers", "--main", "README.rdoc", "--inline-source", "--exclude", "^(examples|extras)/"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{}

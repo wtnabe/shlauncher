@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 require "test/unit"
-require File.dirname(__FILE__) + '/../template/lib/shlauncher'
+require File.dirname(__FILE__) + '/../templates/lib/shlauncher'
 
 class ShlauncherTest < Test::Unit::TestCase
   def setup

@@ -20,6 +20,11 @@ Scaffold your custom launcher. Launch from your shell script ( and also Ruby scr
 * exec all tasks in some scope
 * generate gem
 
+== Requirements
+
+* zsh
+* shebang line optimization on Linux
+
 == Synopsis
 
 Scaffold your launcher.

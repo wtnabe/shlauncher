@@ -1,4 +1,4 @@
-#! /usr/bin/env rake -f
+#! <%=rake%> -f
 # -*- mode: ruby; coding: utf-8 -*-
 
 require File.dirname( __FILE__ ) + '/../lib/shlauncher'
