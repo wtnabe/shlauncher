@@ -5,7 +5,7 @@ require 'fileutils'
 require 'erb'
 
 class Shlauncher_Tractor
-  VERSION = "0.0.5"
+  VERSION = "0.0.6"
 
   include FileUtils::Verbose
   class RakeNotFound < StandardError; end
@@ -27,13 +27,11 @@ class Shlauncher_Tractor
     else
       deploy_template
       rewrite_template
-      if ( linux? )
+      if ( !darwin? )
         puts <<EOD
 
-=== FOR LINUX USERS ===
-
-Please be careful bin/#{launcher} shebang line.
-Put the fullpath of rake on it.
+PLEASE BE CAREFUL with bin/#{launcher} shebang line.
+Put the fullpath of rake there.
 
 EOD
       end
@@ -101,16 +99,20 @@ EOD
     RUBY_PLATFORM.match( /linux/i )
   end
 
+  def darwin?
+    RUBY_PLATFORM.match( /darwin/i )
+  end
+
   def _init_rake
-    if ( linux? )
+    if ( darwin? )
+      return '/usr/bin/env rake'
+    else
       rake = which_rake
       if ( rake )
         return rake
       else
         raise RakeNotFound
       end
-    else
-      return '/usr/bin/env rake'
     end
   end
 

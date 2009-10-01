@@ -41,7 +41,7 @@ spec = Gem::Specification.new do |s|
 	s.require_path      = "lib"
 	s.homepage          = ""
 	s.rubyforge_project = ""
-  s.post_install_message = "\nUse with zsh. And FOR LINUX USERS, Please be careful with shebang line of #{BIN_FILES.join( ',' )}.\n\n"
+  s.post_install_message = "\nUse with ZSH, and PLEASE BE CAREFUL with shebang line of #{BIN_FILES.join( ',' )}.\n\n"
 	#s.autorequire       = ""
 
 	s.add_dependency('rake', '>= 0')

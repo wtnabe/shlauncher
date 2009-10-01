@@ -59,7 +59,7 @@ spec = Gem::Specification.new do |s|
 	s.rubyforge_project = RUBYFORGE_PROJECT
 	s.bindir            = "bin"
 	s.require_path      = "lib"
-  s.post_install_message = "\nUse with zsh. And FOR LINUX USERS, Please be careful with shebang line of tractor'd `bin/exectable'.\n\n"
+  s.post_install_message = "\nUse with ZSH, and PLEASE BE CAREFUL with shebang line of tractor'd `bin/exectable'.\n\n"
 	#s.autorequire       = ""
 	s.test_files        = Dir["test/*_test.rb"]
 
