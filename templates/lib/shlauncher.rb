@@ -6,19 +6,98 @@ class Shlauncher
   LINEBREAK       = /(?:\r\n|[\r\n])/
   IGNORE_PATTERNS = %w( *~ *.bak CVS .svn )
 
+  class SubcomandNotExist < StandardError; end
+
   def initialize( script_path = nil )
     if ( script_path and File.directory?( script_path ) )
       @script_path = File.expand_path( script_path )
     end
   end
 
-  def launch( task )
+  def run
+    if ( ARGV.size == 0 )
+      show_info
+    else
+      argv = ARGV.dup
+      task = argv.shift
+      case task
+      when '-c', '--cat'
+        subcmd = argv.shift
+        if ( tasks.include?( subcmd ) )
+          show_script( subcmd )
+        else
+          subcommand_not_exist( subcmd )
+        end
+      when '-h', '--help'
+        puts usage
+      when '-V', '--version'
+        puts version
+      else
+        if ( tasks.include?( task ) )
+          launch_task( task, argv )
+        else
+          subcommand_not_exist( task )
+        end
+      end
+    end
+  end
+
+  def subcommand_not_exist( task )
+    raise( SubcomandNotExist,
+           "A subcommand `#{task}' does not defined !" )
+  end
+
+  def version
+    return "#{File.basename( $0 )} ver. #{VERSION}"
+  end
+
+  def usage
+    version + "\n\n" + <<EOD
+Usage: #{File.basename( $0 )} [options] [subcommand [args]]
+
+Options:
+   -c  --cat      cat script file
+   -h  --help     show this message
+   -V  --version  show version number
+EOD
+  end
+
+  def show_info
+    if ( tasks.size == 0 )
+      puts usage
+      puts "\nNo commands defined."
+    else
+      show_tasks
+    end
+    exit
+  end
+
+  def show_script( task )
+    puts File.open( File.join( script_path, command_path( task ) ) ).read
+  end
+
+  def show_tasks
+    puts "Defined tasks:"
+    maxlen_taskname = 0
+    tasks.map { |name|
+      if ( name.size > maxlen_taskname )
+        maxlen_taskname = name.size
+      end
+      name
+    }.map { |name|
+      puts truncate( "#{name.ljust( maxlen_taskname )}  # #{desc( name )}",
+                     terminal_width )
+    }
+  end
+
+  def launch_task( task, args = nil )
     command = File.join( script_path, command_path( task ) )
     if ( File.directory?( command ) )
       tasks( command_path( task ) ).each { |t|
-        launch( t )
+        launch_task( t, args )
       }
     else
+      command += " #{args.join(' ')}" if args
       system( command )
     end
   end
@@ -118,10 +197,42 @@ class Shlauncher
   def not_comment_line?( line )
     return ( /\A\s*#/ !~ line )
   end
-end
 
-module Rake
-  class Application
-    attr_accessor :name
+# copied from rake
+
+  def terminal_width
+    if ENV['RAKE_COLUMNS']
+      result = ENV['RAKE_COLUMNS'].to_i
+    else
+      result = unix? ? dynamic_width : 80
+    end
+    (result < 10) ? 80 : result
+  rescue
+    80
+  end
+
+  # Calculate the dynamic width of the
+  def dynamic_width
+    @dynamic_width ||= (dynamic_width_stty.nonzero? || dynamic_width_tput)
+  end
+
+  def dynamic_width_stty
+    %x{stty size 2>/dev/null}.split[1].to_i
+  end
+
+  def dynamic_width_tput
+    %x{tput cols 2>/dev/null}.to_i
+  end
+
+  def unix?
+    RUBY_PLATFORM =~ /(aix|darwin|linux|(net|free|open)bsd|cygwin|solaris|irix|hpux)/i
+  end
+
+  def truncate(string, width)
+    if string.length <= width
+      string
+    else
+      ( string[0, width-3] || "" ) + "..."
+    end
   end
 end

@@ -5,7 +5,7 @@ require 'fileutils'
 require 'erb'
 
 class Shlauncher_Tractor
-  VERSION = "0.0.6"
+  VERSION = "0.1.0"
 
   include FileUtils::Verbose
   class RakeNotFound < StandardError; end
@@ -16,9 +16,8 @@ class Shlauncher_Tractor
     @email       = nil
     @author      = nil
     @description = nil
-    @rake        = _init_rake
   end
-  attr_reader :launcher, :email, :author, :description, :rake
+  attr_reader :launcher, :email, :author, :description
 
   def run
     @launcher = parse_args
@@ -27,14 +26,6 @@ class Shlauncher_Tractor
     else
       deploy_template
       rewrite_template
-      if ( !darwin? )
-        puts <<EOD
-
-PLEASE BE CAREFUL with bin/#{launcher} shebang line.
-Put the fullpath of rake there.
-
-EOD
-      end
     end
   end
 
@@ -53,7 +44,7 @@ EOD
 
   def rewrite_template
     Dir.chdir( launcher_dir ) {
-      targets = %w( Rakefile ChangeLog README ) + ["bin/#{launcher}"]
+      targets = %w( Rakefile ChangeLog README )
       targets.each { |file|
         open( file, 'r+' ) { |f|
           erb = ERB.new( f.read )
@@ -92,42 +83,6 @@ EOD
     else
       puts opt.help
       exit
-    end
-  end
-
-  def linux?
-    RUBY_PLATFORM.match( /linux/i )
-  end
-
-  def darwin?
-    RUBY_PLATFORM.match( /darwin/i )
-  end
-
-  def _init_rake
-    if ( darwin? )
-      return '/usr/bin/env rake'
-    else
-      rake = which_rake
-      if ( rake )
-        return rake
-      else
-        raise RakeNotFound
-      end
-    end
-  end
-
-  def which_rake
-    paths = ENV['PATH'].split( File::PATH_SEPARATOR ).select { |path|
-      if ( File.exist?( path ) )
-        Dir.chdir( path ) {
-          Dir.glob( '*' ).include?( 'rake' )
-        }
-      end
-    }
-    if ( paths.size > 0 )
-      paths.first + '/rake'
-    else
-      nil
     end
   end
 end

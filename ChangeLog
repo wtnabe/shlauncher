@@ -1,4 +1,7 @@
 == 0.0.1 / 2009-08-27
 
-* initial release
+	* initial release
 
+== 0.1.0 / 2009-10-04
+
+	* remove dependency on rake for listing up tasks
