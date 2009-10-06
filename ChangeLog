@@ -1,7 +1,11 @@
-== 0.0.1 / 2009-08-27
+== 0.1.1 / 2009-10-06
 
-	* initial release
+	* added: ignore `no comment' task
 
 == 0.1.0 / 2009-10-04
 
-	* remove dependency on rake for listing up tasks
+	* removed: dependency on rake for listing up tasks
+
+== 0.0.1 / 2009-08-27
+
+	* initial release

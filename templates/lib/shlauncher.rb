@@ -126,7 +126,12 @@ EOD
           [f, tasks( (( path ) ? File.join( path, f ) : f) )]
         elsif ( File.executable?( f ) and
                 !commands_ignored( path ).include?( f ) )
-          ( path ) ? task( File.join( path, f ) ) : f
+          taskname = ( path ) ? task( File.join( path, f ) ) : f
+          if ( desc( taskname ).size > 0 )
+            taskname
+          else
+            nil
+          end
         else
           nil
         end
