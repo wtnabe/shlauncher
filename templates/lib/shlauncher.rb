@@ -98,7 +98,11 @@ EOD
       }
     else
       command += " #{args.join(' ')}" if args
-      system( command )
+      if ( unix? )
+        system( command )
+      else
+        system( 'ruby', command )
+      end
     end
   end
 
