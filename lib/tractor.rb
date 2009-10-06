@@ -5,7 +5,7 @@ require 'fileutils'
 require 'erb'
 
 class Shlauncher_Tractor
-  VERSION = "0.1.1"
+  VERSION = "0.1.2"
 
   include FileUtils::Verbose
   class RakeNotFound < StandardError; end
