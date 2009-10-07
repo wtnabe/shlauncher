@@ -1,5 +1,5 @@
 
-= Shlauncher - A shell script launcher
+= Shlauncher - A shell script launcher inspired by Rake
 
 Scaffold your custom launcher. Launch from your shell script ( and also Ruby script ) collection.
 
@@ -20,7 +20,7 @@ Scaffold your custom launcher. Launch from your shell script ( and also Ruby scr
 * exec all tasks in some scope
 * generate gem
 
-* On Windows, only Ruby scripts can be executed.
+* On Windows, ONLY RUBY SCRIPTS can be executed.
 
 == Synopsis
 
@@ -41,8 +41,11 @@ Run your launcher.
 
  LAUNCHER_NAME sample  # script sample
 
+NOTE: Or type `ruby bin\LAUNCHER_NAME' if you use Windows.
+
 Generate gem from your launcher.
 
+ $ rake gemspec
  $ rake gem
  $ ls pkg
 
