@@ -1,5 +1,7 @@
 #! /usr/bin/env ruby
 
-require File.dirname( __FILE__ ) + '/../lib/shlauncher'
+require 'rubygems'
+require 'shlauncher/shlauncher'
+require File.dirname( __FILE__ ) + '/../lib/version'
 
-Shlauncher.new( File.dirname( __FILE__ ) + '/../script' ).run
+Shlauncher::Shlauncher.new( File.dirname( __FILE__ ) + '/../script' ).run

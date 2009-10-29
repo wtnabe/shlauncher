@@ -10,8 +10,7 @@ require 'rake/rdoctask'
 require 'rake/contrib/rubyforgepublisher'
 require 'rake/contrib/sshpublisher'
 require 'fileutils'
-require 'lib/tractor'
-require 'templates/lib/shlauncher'
+require 'lib/shlauncher'
 include FileUtils
 
 NAME              = "shlauncher"
@@ -22,7 +21,7 @@ RUBYFORGE_PROJECT = ""
 HOMEPATH          = ""
 BIN_FILES         = %w( tractor )
 
-VERS              = Shlauncher_Tractor::VERSION
+VERS              = Shlauncher::VERSION
 REV = File.read(".svn/entries")[/committed-rev="(d+)"/, 1] rescue nil
 CLEAN.include ['**/.*.sw?', '*.gem', '.config']
 RDOC_OPTS = [

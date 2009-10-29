@@ -1,5 +1,5 @@
 #! /usr/bin/env ruby
 
-require File.dirname( __FILE__ ) + '/../lib/tractor'
+require File.dirname( __FILE__ ) + '/../lib/shlauncher/tractor'
 
-Shlauncher_Tractor.new(ARGV).run
+Shlauncher::Tractor.new(ARGV).run

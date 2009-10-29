@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 
+require File.dirname( __FILE__ ) + '/base'
+
+module Shlauncher
 class Shlauncher
-  VERSION = '0.0.1'
+  include Object::Shlauncher
 
   LINEBREAK       = /(?:\r\n|[\r\n])/
   IGNORE_PATTERNS = %w( *~ *.bak CVS .svn )
@@ -48,7 +51,7 @@ class Shlauncher
   end
 
   def version
-    return "#{File.basename( $0 )} ver. #{VERSION}"
+    return "#{File.basename( $0 )} ver. #{SHLAUNCHER_VER}"
   end
 
   def usage
@@ -244,4 +247,5 @@ EOD
       ( string[0, width-3] || "" ) + "..."
     end
   end
+end
 end

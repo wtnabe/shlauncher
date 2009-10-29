@@ -3,10 +3,11 @@
 require 'optparse'
 require 'fileutils'
 require 'erb'
+require File.dirname( __FILE__ ) + '/base'
 
-class Shlauncher_Tractor
-  VERSION = "0.1.3"
-
+module Shlauncher
+class Tractor
+  include Object::Shlauncher
   include FileUtils::Verbose
   class RakeNotFound < StandardError; end
 
@@ -34,7 +35,7 @@ class Shlauncher_Tractor
   end
 
   def deploy_template
-    cp_r( File.expand_path( File.dirname( __FILE__ ) + '/../templates/' ),
+    cp_r( File.expand_path( File.dirname( __FILE__ ) + '/../../templates/' ),
           launcher_dir )
     Dir.chdir( launcher_dir ) {
       mkdir( 'script' )
@@ -85,4 +86,5 @@ EOD
       exit
     end
   end
+end
 end

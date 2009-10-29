@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 require "test/unit"
-require File.dirname(__FILE__) + '/../templates/lib/shlauncher'
+require File.dirname(__FILE__) + '/../lib/shlauncher/shlauncher'
 
 class ShlauncherTest < Test::Unit::TestCase
   def setup
-    @obj = Shlauncher.new( File.dirname( __FILE__ ) + '/script' )
+    @obj = Shlauncher::Shlauncher.new( File.dirname( __FILE__ ) + '/script' )
   end
 
   def test_tasks

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 require "test/unit"
-require File.dirname(__FILE__) + '/../lib/tractor'
+require File.dirname(__FILE__) + '/../lib/shlauncher/tractor'
 
 class Shlauncher_TractorTest < Test::Unit::TestCase
   def test_Shlauncher_Tractor
@@ -9,6 +9,6 @@ class Shlauncher_TractorTest < Test::Unit::TestCase
   end
 
   def setup
-    @obj = Shlauncher_Tractor.new( ARGV )
+    @obj = Shlauncher::Tractor.new( ARGV )
   end
 end
