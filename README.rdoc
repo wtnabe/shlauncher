@@ -11,7 +11,8 @@ Scaffold your custom launcher. Launch from your shell script ( and also Ruby scr
 
 === Gem Installation
 
- gem install wtnabe-shlauncher
+ gem sources -a http://gemcutter.org/
+ gem install shlauncher
 
 == Features/Problems
 

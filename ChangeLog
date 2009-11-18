@@ -1,3 +1,12 @@
+== 0.2.1 / 2009-11-18
+
+	* added: preserve option to FileUtils#cp
+	* removed : gemspec file
+
+== 0.2.0 / 2009-10-30
+
+	* modified: make tractor'd launcher depend on shlauncher gem
+
 == 0.1.3 / 2009-10-06
 
 	* added: Windows support
