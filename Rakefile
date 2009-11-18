@@ -16,7 +16,7 @@ include FileUtils
 NAME              = "shlauncher"
 AUTHOR            = "wtnabe"
 EMAIL             = "wtnabe@gmail.com"
-DESCRIPTION       = "A shell script launcher"
+DESCRIPTION       = "A shell script launcher inspired by Rake and Cutagem"
 RUBYFORGE_PROJECT = ""
 HOMEPATH          = ""
 BIN_FILES         = %w( tractor )
