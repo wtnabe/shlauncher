@@ -37,7 +37,7 @@ class Tractor
   def deploy_template
     cp_r( File.expand_path( File.dirname( __FILE__ ) + '/../../templates/' ),
           launcher_dir,
-          :preserve => yes )
+          :preserve => true )
     Dir.chdir( launcher_dir ) {
       mkdir( 'script' )
       mv( 'bin/shlauncher', "bin/#{launcher}" )
